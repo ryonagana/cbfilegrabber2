@@ -15,6 +15,7 @@ QMAKE_CFLAGS_RELEASE += -std=c11 -s -O3 -Wall -Wextra -fomit-frame-pointer
 SOURCES += \
     src/cb_compress.c \
     src/cb_file.c \
+    src/cb_params.c \
     src/cbfilegrabber2.c \
     src/data/list.c \
     src/miniz/miniz.c
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     src/cb_compress.h \
     src/cb_file.h \
+    src/cb_params.h \
     src/cbfilegrabber2.h \
     src/data/list.h \
     src/miniz/miniz.h
