@@ -40,20 +40,34 @@ void process_args(int* argc, char** argv){
         help();
         exit(-1);
     }else if(*argc > 1){
-        switch(*argv[1]){
+       /*
+        * get the first char  of argv[1]
+        */
+        switch(argv[1][0]){
+
+            //starts with '-'
             case '-':{
+
+                // checks if argv[1] is --zip or --package
                 if(strncmp("--zip", argv[1], 32) != -1 || strncmp("--package", argv[1], 32) != -1  ){
 
+                    // if argv[2] (third parameter) is missing just rename it to assets.zip
+                    // or uses the third parameter string
                     if(strlen(argv[2]) == 0){
                         zip_start(&zip_archive, "assets.zip");
                     }else {
                            zip_start(&zip_archive, argv[2]);
                     }
 
+                    //ends the zip file for posterior insert
                     zip_end(&zip_archive);
                 }
 
-
+                /*
+                 *
+                 * check if file exists
+                 * is is missing doesnt works and program ends
+                 */
                 if(strncmp("--file", argv[3], 32) != -1){
                     if(strlen(argv[4]) == 0){
                         cbfg_error( "%s - file is missing\n", __FUNCTION__);
@@ -68,8 +82,6 @@ void process_args(int* argc, char** argv){
              break;
         }
     }
-
-   zip_end(&zip_archive);
 }
 
 

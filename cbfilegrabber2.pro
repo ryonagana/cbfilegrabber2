@@ -5,7 +5,7 @@ CONFIG -= qt
 
 
 QMAKE_CFLAGS_DEBUG += -std=c11 -Wall -Wextra -g -O0
-QMAKE_CFLAGS_RELEASE += -std=c11 -s -O3 -Wall -Wextra
+QMAKE_CFLAGS_RELEASE += -std=c11 -s -O3 -Wall -Wextra -fomit-frame-pointer
 
 
 
